@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'µ',
     author: 'Michal Wolski',
-    description: 'A starter blog demonstrating what Gatsby can do.',
+    description: 'A µ blog.',
     siteUrl: 'michal.io'
   },
   pathPrefix: '/gatsby-starter-blog',
@@ -48,13 +48,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `µ - a blog`,
+        short_name: `michal.io`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/gatsby-icon.png`,
+        icon: `static/favicon.ico`,
       },
     },
     `gatsby-plugin-offline`,

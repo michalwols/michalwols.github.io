@@ -20,7 +20,7 @@ class BlogIndex extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        <Bio />
+        {/*<Bio />*/}
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
