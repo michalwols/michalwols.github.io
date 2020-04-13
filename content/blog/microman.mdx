@@ -1,0 +1,57 @@
+---
+title: 'Microman: a simpler way to micromanage your (machine learning) tasks'
+date: '2020-01-02T22:12:03.284Z'
+tags: ['python', 'automation']
+draft: Yes
+---
+
+Going from raw data to a production machine learning model is a long and laborious process. Managing it by hand is painful and error prone. 
+
+## Goals
+
+1. Make it easy to get started in a notebook or python interpreter
+2. Just Python TM
+2. Track execution time and artifacts
+3. Avoid serialization between steps when possible
+4. Run where you want, on your computer, github actions, kubernetes or anything else.
+
+
+## Tasks
+
+```python
+from microman import task
+
+@task
+def download_data():
+  pass
+
+
+@task
+def train_model():
+  pass
+
+
+@task
+def full_pipeline():
+  data = download_data()
+  train_model(data)
+```
+
+#### DAGs by Run instead of Static DAGs
+
+## Task Runs
+
+
+## Runners
+
+#### Local
+
+
+#### Dask
+
+
+## Data Lineage
+
+---
+
+## Examples
