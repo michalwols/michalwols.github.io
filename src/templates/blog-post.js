@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
-import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
@@ -14,10 +13,12 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
     console.log(this.props.pageContext)
 
+    const {title, tags, date} = post.frontmatter
+
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <h1>{post.frontmatter.title}</h1>
+        <SEO title={title} description={post.excerpt} />
+        <h1>{title}</h1>
         <p
           style={{
             ...scale(-1 / 5),
@@ -27,15 +28,16 @@ class BlogPostTemplate extends React.Component {
             opacity: .4
           }}
         >
-          {post.frontmatter.date}
+          {date}
         </p>
 
 
 
         <MDXRenderer>{post.body}</MDXRenderer>
 
-
-        <p>tags: {post.frontmatter.tags.map(t => <span style={{padding: '3px 6px', margin: 3}}>{t}</span>)}</p>
+        
+        {tags && !!tags.length && <p>tags: {post.frontmatter.tags.map(t => <span style={{padding: '3px 6px', margin: 3}}>{t}</span>)}</p>}
+        
 
         <ul
           style={{
@@ -81,7 +83,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       frontmatter {
         title
-          tags
+        tags
         date(formatString: "MMMM DD, YYYY")
       }
       body

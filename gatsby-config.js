@@ -3,7 +3,7 @@ module.exports = {
     title: 'µ',
     author: 'Michal Wolski',
     description: 'A µ blog.',
-    siteUrl: 'michal.io',
+    siteUrl: 'https://michal.io',
     social: {
       twitter: `michalwols`,
     },
@@ -102,6 +102,7 @@ module.exports = {
               allMdx(
                 limit: 1000,
                 sort: { order: DESC, fields: [frontmatter___date] },
+                filter: { frontmatter: { draft: { ne: true } } },
               ) {
                 edges {
                   node {
@@ -125,13 +126,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `µ - a blog`,
+        short_name: `michal.io`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        display: `minimal-ui`
       },
     },
     `gatsby-plugin-offline`,
